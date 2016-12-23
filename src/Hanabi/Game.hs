@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TupleSections #-}
 
 module Hanabi.Game where
 
@@ -38,6 +39,9 @@ handSize n = error ("the game does not support " ++ show n ++ " players!")
 maximumFailures :: Int
 maximumFailures = 3
 
+initialHints :: Int
+initialHints = 7
+
 sortedGame :: [Card]
 sortedGame = concat (concat allCards)
   where
@@ -57,6 +61,34 @@ inGroupsOf _ [] = []
 inGroupsOf n xs =
   let (as, bs) = splitAt n xs
   in as : inGroupsOf n bs
+
+isSuccessor
+  :: (Bounded t, Enum t, Eq t)
+  => t -> t -> Bool
+num1 `isSuccessor` num2 = (num1, num2) `elem` zip allNums (tail allNums)
+  where
+    allNums = [minBound .. maxBound]
+
+getCards :: Hand -> [Card]
+getCards = map fst
+
+createHand :: [Card] -> Hand
+createHand = fmap (, Set.empty)
+
+isPositiveFact :: Fact -> Bool
+isPositiveFact (Not _) = False
+isPositiveFact _ = True
+
+isNumberFact :: Fact -> Bool
+isNumberFact (Not (IsNumber _)) = True
+isNumberFact (IsNumber _) = True
+isNumberFact _ = False
+
+differentType :: Fact -> Fact -> Bool
+differentType = (/=) `on` isNumberFact
+
+isColorFact :: Fact -> Bool
+isColorFact = not . isNumberFact
 
 -- propNNumbers :: Int -> Number -> Color -> Bool
 -- propNNumbers n num col = length ones == n

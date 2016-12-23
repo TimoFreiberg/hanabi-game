@@ -5,6 +5,7 @@ module Hanabi.Repl where
 import Hanabi.Types
 import Hanabi.Game
 import Hanabi.Transitions
+import Hanabi.Print
 
 import Data.IORef
 import System.IO.Unsafe (unsafePerformIO)

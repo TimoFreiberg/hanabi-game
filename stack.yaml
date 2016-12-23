@@ -39,7 +39,7 @@ packages:
 - '.'
 - location:
     git: git@github.com:TimoFreiberg/hanabi-core
-    commit: 2c358dc5acff0d12880c6612d864d77292ac9d17
+    commit: 1b50a35
   extra-dep: true
 # Dependency packages to be pulled from upstream that are not in the resolver
 # (e.g., acme-missiles-0.3)
