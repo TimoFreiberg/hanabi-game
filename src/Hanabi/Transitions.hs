@@ -1,6 +1,6 @@
 module Hanabi.Transitions where
 
-import Hanabi.Types
+import Hanabi
 import Hanabi.Game
 
 cardPlayed :: Card -> Game -> Either GameOver Game

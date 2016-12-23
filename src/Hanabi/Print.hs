@@ -1,6 +1,6 @@
 module Hanabi.Print where
 
-import Hanabi.Types
+import Hanabi
 
 import Data.Map.Strict (Map)
 import qualified Data.Map.Strict as Map

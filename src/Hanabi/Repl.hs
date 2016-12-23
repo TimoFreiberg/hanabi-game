@@ -2,7 +2,7 @@
 
 module Hanabi.Repl where
 
-import Hanabi.Types
+import Hanabi
 import Hanabi.Game
 import Hanabi.Transitions
 import Hanabi.Print

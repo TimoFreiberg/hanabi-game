@@ -14,7 +14,7 @@ import qualified Data.Set as Set
 import Data.Set (Set)
 import System.Random.Shuffle (shuffleM)
 
-import Hanabi.Types
+import Hanabi
 
 colors :: [Color]
 colors = [minBound .. maxBound]
